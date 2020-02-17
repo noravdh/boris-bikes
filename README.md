@@ -1,1 +1,1 @@
-This project will emulate the boris bike sytem. The program will include all the docking stations, bikes, and infrastructure (repair staff, and so on) required.
+This project will emulate the boris bike system. The program will include all the docking stations, bikes, and infrastructure (repair staff, and so on) required.

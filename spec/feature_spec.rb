@@ -7,4 +7,5 @@ puts docking_station.capacity
 }
 puts docking_station.release_bike
 puts bike = Bike.new
+puts bike.report_broken
 puts docking_station.dock(bike)

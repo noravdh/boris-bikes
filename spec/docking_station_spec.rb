@@ -13,7 +13,7 @@ describe DockingStation do
   
   describe "#release_bike" do
     it 'releases a bike' do
-      bike = Bike.new
+      bike = double :bike
       subject.dock(bike)
       expect(subject.release_bike).to eq bike
     end
@@ -23,7 +23,7 @@ describe DockingStation do
     end
 
     it 'raises an error when you try to release a broken bike' do
-      bike = Bike.new
+      bike = double :bike
       bike.report_broken
       subject.dock(bike)
       expect{subject.release_bike}.to raise_error 'This bike is broken'
@@ -33,7 +33,7 @@ describe DockingStation do
 
   describe "#dock" do
     it "docks something" do
-      bike = Bike.new
+      bike = double :bike
       expect(subject.dock(bike)).to eq bike
     end
 
@@ -42,13 +42,14 @@ describe DockingStation do
     end
 
     it "raise an error when the dock is full" do
-      subject.capacity.times {subject.dock(Bike.new)}
-      expect { subject.dock Bike.new}.to raise_error "Docking station full"
+      subject.capacity.times {subject.dock double :bike}
+      expect { subject.dock double(:bike)}.to raise_error "Docking station full"
     end
 
 
     it "returns docked bikes" do
-      bike = Bike.new
+      bike = double :bike
+      # bike = Bike.new
       subject.dock(bike)
       expect(subject.bike).to eq bike
     end
